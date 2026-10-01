@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>St Peter Parish, Ikom | The Royal Parish</title>
+<meta name="description" content="St Peter Parish, Ikom, The Royal Parish. Mass times, sacraments, events, ministries, daily readings, live Mass and giving.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="ST_PETER.CSS">
+   <link rel="icon" type="image/png" href="img sp peter/LOGO.png">
+ <body> 
+<!-- Shared drawing: the crossed keys of St Peter -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <g id="key">
+      <circle cx="0" cy="-20" r="6"/>
+      <path d="M0 -14 V22 M0 14 H8 M0 20 H8"/>
+    </g>
+    <g id="crossed-keys" fill="none" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#key" stroke="#B8892B" transform="rotate(45)"/>
+      <use href="#key" stroke="#6B1F2A" transform="rotate(-45)"/>
+    </g>
+    <ellipse id="petal" cx="0" cy="-60" rx="13" ry="24"/>
+  </defs>
+</svg>
+ 
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="wrap top">
+    <a class="brand" href="#home" aria-label="St Peter Parish, Ikom, home">
+      <svg width="40" height="40" viewBox="-30 -30 60 60" aria-hidden="true"><use href="#crossed-keys"/></svg>
+      <span>
+        <strong>St Peter Parish</strong>
+        <small>Ikom, The Royal Parish</small>
+      </span>
+    </a>
+    <div class="top-actions">
+      <a class="btn btn-wine" href="#giving">Donate</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+    </div>
+  </div>
+ 
+  <nav id="menu" aria-label="Main">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="mt.html">Mass Times</a></li>
+      <li><a href="Sacraments.html">Sacraments</a></li>
+      <li><a href="media.html">Media</a></li>
+      <li><a href="Events.html">Events</a></li>
+      <li><a href="minister.html">Ministries</a></li>
+      <li><a href="reading.html">Readings</a></li>
+      <li><a href="#bulletin">Bulletin</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="live_mass.html">Live Mass</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+ 
+<main>
+ 
+<!-- ============ HOME ============ -->
+<section id="home" class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>St Peter Parish, Ikom</h1>
+      <p class="subtitle">The Royal Parish</p>
+      <p>A Catholic family gathered around the Eucharist and the Word of God. Whether you are new to Ikom or have prayed here all your life, there is a place for you.</p>
+      <div class="buttons">
+        <a class="btn btn-wine" href="mt.html">See Mass times</a>
+        <a class="btn btn-line" href="live_mass.html">Watch Mass live</a>
+      </div>
+    </div>
+ 
+    <!-- Rose window -->
+    <svg class="rose" viewBox="-100 -100 200 200" role="img" aria-label="A rose window with the crossed keys of St Peter at its centre">
+      <circle r="96" fill="#45111A" stroke="#B8892B" stroke-width="3"/>
+      <circle r="90" fill="none" stroke="#E9D9AE" stroke-width="3" stroke-linecap="round" stroke-dasharray="0.1 8"/>
+      <g fill="#6B1F2A" stroke="#E9D9AE" stroke-width="1.5">
+        <use href="#petal"/>
+        <use href="#petal" transform="rotate(60)"/>
+        <use href="#petal" transform="rotate(120)"/>
+        <use href="#petal" transform="rotate(180)"/>
+        <use href="#petal" transform="rotate(240)"/>
+        <use href="#petal" transform="rotate(300)"/>
+      </g>
+      <g fill="#B8892B" stroke="#E9D9AE" stroke-width="1.5">
+        <use href="#petal" transform="rotate(30)"/>
+        <use href="#petal" transform="rotate(90)"/>
+        <use href="#petal" transform="rotate(150)"/>
+        <use href="#petal" transform="rotate(210)"/>
+        <use href="#petal" transform="rotate(270)"/>
+        <use href="#petal" transform="rotate(330)"/>
+      </g>
+      <circle r="34" fill="#FFFDF8" stroke="#B8892B" stroke-width="3"/>
+      <use href="#crossed-keys"/>
+    </svg>
+  </div>
+</section>
+<!-- ============ GIVING ============ -->
+<section id="giving" class="paper">
+  <div class="wrap">
+    <h2>Giving</h2>
+    <hr class="rule">
+    <p>Your gifts keep the church open, support the poor and help the parish grow. Thank you for your generosity.</p>
+    <!-- EDIT: add the real parish account details -->
+    <dl class="bank">
+      <div><dt>Bank</dt><dd>UBA</dd></div>
+      <div><dt>Account name</dt><dd>2297908706</dd></div>
+      <div><dt>Account number</dt><dd>Anthony Emmanuel Ejabo</dd></div>
+    </dl>
+    <p>You can also give at the offertory during Mass or at the parish office.</p>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="wrap two-col">
+    <div>
+      <h2>Contact us</h2>
+      <hr class="rule">
+      <!-- EDIT: replace with your real details -->
+      <ul class="contact-list">
+        <li><strong>Address</strong>St Peter Parish, Ikom, Cross River State, Nigeria</li>
+        <li><strong>Phone</strong>+23407066827515</li>
+        <li><strong>Email</strong><a href="royalparishstpeter@gmail"></a>royalparishstpeter@gmail</li>
+        <li><strong>Parish office hours</strong>Monday to Friday, 6:30AM to 5:45pmPM</li>
+      </ul>
+    </div>
+</body>
+</html>
+ 
