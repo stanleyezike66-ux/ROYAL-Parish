@@ -60,10 +60,13 @@
  
 <main>
  <script>
-function toggleMenu() {
-    const menu = document.getElementById("mobile-menu");
-    menu.classList.toggle("show");
-}
+  var btn = document.querySelector('.menu-btn');
+  var menu = document.getElementById('menu');
+
+  btn.addEventListener('click', function () {
+    var isOpen = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen);
+  });
 </script>
 <!-- ============ HOME ============ -->
 <section id="home" class="hero">
