@@ -3,27 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="ST_PETER.CSS">
-        <link rel="icon" type="image/png" href="img sp peter/LOGO.png">
+    <link rel="stylesheet" href="ST_PETER.CSS">
+    <link rel="stylesheet" href="gallery.css">   <!-- must come AFTER ST_PETER.CSS -->
+    <link rel="icon" type="image/png" href="img sp peter/LOGO.png">
     <title>GALLERY</title>
 </head>
 <body>
-    
+ <link rel="stylesheet" href="ST_PETER.CSS">
+        <link rel="icon" type="image/png" href="img sp peter/LOGO.png">
 <!-- ============ GALLERY ============ -->
 <section id="gallery" class="paper">
   <div class="wrap">
     <h2>Gallery</h2>
     <hr class="rule">
-    <!-- EDIT: to use a real photo, add inside a figure: <img src="images/photo1.jpg" alt="Describe the photo"> -->
-    <div class="gallery">
-      <figure><figcaption>Sunday Mass</figcaption></figure>
-      <figure><figcaption>First Holy Communion</figcaption></figure>
-      <figure><figcaption>Parish choir</figcaption></figure>
-      <figure><figcaption>Youth gathering</figcaption></figure>
-      <figure><figcaption>Feast day procession</figcaption></figure>
-      <figure><figcaption>Parish community</figcaption></figure>
+
+    <!-- Your pictures are listed at the top of gallery.js. Nothing to add here. -->
+    <div class="slider" id="slider" aria-roledescription="carousel" aria-label="Parish photo gallery">
+      <div class="slides"></div>
+
+      <button class="arrow prev" type="button" aria-label="Previous photo">&#10094;</button>
+      <button class="arrow next" type="button" aria-label="Next photo">&#10095;</button>
+
+      <!-- dots and the counter are created by gallery.js -->
+      <div class="dots" role="tablist" aria-label="Choose a photo"></div>
+      <div class="counter" aria-live="polite"></div>
     </div>
   </div>
 </section>
+
+<script src="gallery.js"></script>
 </body>
 </html>

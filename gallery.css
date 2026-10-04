@@ -1,0 +1,143 @@
+/* ===== Gallery slider (load this AFTER ST_PETER.CSS) ===== */
+.slider {
+  --speed: 0.8s;               /* how long each slide movement takes */
+  --focus: 50% 15%;            /* which part of a photo stays visible: horizontal vertical.
+                                  15% keeps faces in tall (portrait) photos. Use 50% 50% for centre. */
+  position: relative;
+  overflow: hidden;            /* hides slides waiting outside the box */
+  aspect-ratio: 3 / 2;
+  max-height: 80vh;
+  margin: 1.5rem auto 0;
+  border-radius: 14px;
+  background: var(--burgundy-dark, #45111a);
+  box-shadow: 0 18px 45px rgba(50, 15, 20, 0.4), 0 0 0 4px var(--mustard, #c99a1e);
+  touch-action: pan-y;         /* page still scrolls up/down; we handle left/right swipes */
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slides { position: absolute; inset: 0; }
+
+/* Every slide sits on top of the others. Hidden ones wait off to the right. */
+.slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  visibility: hidden;
+  transform: translate3d(100%, 0, 0);
+  transition: transform var(--speed) cubic-bezier(0.77, 0, 0.18, 1);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+.slide.active { visibility: visible; transform: translate3d(0, 0, 0); }
+
+.slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* fills the box without stretching */
+  object-position: var(--focus);
+}
+
+/* dark shade so captions, dots and buttons are easy to see */
+.slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to top, rgba(20, 8, 8, 0.7) 0%, rgba(20, 8, 8, 0) 40%),
+    radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.35) 100%);
+}
+
+.slide figcaption {
+  position: absolute;
+  left: 1.5rem;
+  bottom: 2.6rem;
+  right: 5rem;
+  z-index: 1;
+  color: #fff;
+  font-family: var(--serif, Georgia, serif);
+  font-size: clamp(1.2rem, 2.8vw, 2rem);
+  font-weight: 600;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* ----- Previous / Next buttons ----- */
+.arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  width: 48px;
+  height: 48px;
+  margin-top: -24px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--burgundy, #6b1f2a);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.arrow:hover { background: var(--golden, #f4b81c); color: var(--burgundy-dark, #45111a); transform: scale(1.08); }
+.arrow:focus-visible, .dot:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.prev { left: 14px; }
+.next { right: 14px; }
+
+/* ----- Dots ----- */
+.dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 14px;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  transition: width 0.3s, background 0.3s;
+}
+.dot.active { width: 28px; background: var(--golden, #f4b81c); }
+
+/* ----- Counter (replaces dots when there are more than 12 pictures) ----- */
+.counter {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 3;
+  display: none;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(20, 8, 8, 0.65);
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.slider.many .counter { display: block; }
+.slider.many .dots { display: none; }
+.slider.many .slide figcaption { right: 6rem; bottom: 1.2rem; }
+
+/* ----- Tablets and phones ----- */
+@media (max-width: 768px) {
+  .slider { aspect-ratio: 4 / 3; border-radius: 10px; }
+  .slide figcaption { left: 1rem; bottom: 2.4rem; right: 1rem; }
+  .arrow { width: 40px; height: 40px; margin-top: -20px; }
+  .prev { left: 8px; }
+  .next { right: 8px; }
+}
+@media (max-width: 480px) {
+  .slider { aspect-ratio: 1 / 1; }
+}
+
+/* People who turn off animations in their phone settings get an instant change */
+@media (prefers-reduced-motion: reduce) {
+  .slider { --speed: 0.01s; }
+}
